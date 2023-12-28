@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1703792341 source:c:\users\haith\onedrive\bureau\projetcfr2\projetcfr2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
