@@ -18,7 +18,9 @@ Ce programme de gestion de banque a été développé en langage C pour gérer l
 
 7. **Nombre Total de Comptes:** Affiche le nombre total de comptes clients enregistrés dans la banque.
 
-8. **Quitter:** Permet de quitter le programme.
+8. **Transactions:** Afficher et gérer les transactions bancaires.
+
+9. **Quitter:** Permet de quitter le programme.
 
 ## Comment Utiliser
 
