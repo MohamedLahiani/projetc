@@ -76,7 +76,7 @@ void nouveau_compte()
     scanf("%s", ajouter.nationalite);
     printf("\nEntrez le numero de telephone : ");
     scanf("%lf", &ajouter.telephone);
-    printf("\nEntrez le montant à deposer : $");
+    printf("\nEntrez le montant Ã  deposer : $");
     scanf("%f", &ajouter.montant);
     printf("\nType de compte :\n\t#Epargne\n\t#Courant\n\t#Fixe1 (pour 1 an)\n\t#Fixe2 (pour 2 ans)\n\t#Fixe3 (pour 3 ans)\n\n\tEntrez votre choix :");
     scanf("%s", ajouter.type_compte);
@@ -152,7 +152,7 @@ void modifier(void)
         if (ajouter.num_compte == mettre_a_jour.num_compte)
         {
             test = 1;
-            printf("\nQuelle information souhaitez-vous changer ?\n1. Adresse\n2. Téléphone\n\nEntrez votre choix (1 pour l'adresse et 2 pour le telephone) :");
+            printf("\nQuelle information souhaitez-vous changer ?\n1. Adresse\n2. TÃ©lÃ©phone\n\nEntrez votre choix (1 pour l'adresse et 2 pour le telephone) :");
             scanf("%d", &choix);
             system("cls");
             if (choix == 1)
@@ -161,7 +161,7 @@ void modifier(void)
                 scanf("%s", mettre_a_jour.adresse);
                 fprintf(nouveau, "%d %s %d/%d/%d %d %s %s %lf %s %f %d/%d/%d\n", ajouter.num_compte, ajouter.nom, ajouter.naissance.mois, ajouter.naissance.jour, ajouter.naissance.annee, ajouter.age, mettre_a_jour.adresse, ajouter.nationalite, ajouter.telephone, ajouter.type_compte, ajouter.montant, ajouter.depot.mois, ajouter.depot.jour, ajouter.depot.annee);
                 system("cls");
-                printf("Changements enregistrés !");
+                printf("Changements enregistrÃ©s !");
             }
             else if (choix == 2)
             {
@@ -229,12 +229,12 @@ void effectuer_transaction(void)
             test = 1;
             if (strcmpi(ajouter.type_compte, "fixe1") == 0 || strcmpi(ajouter.type_compte, "fixe2") == 0 || strcmpi(ajouter.type_compte, "fixe3") == 0)
             {
-                printf("\a\a\a\n\nVOUS NE POUVEZ PAS DÉPOSER OU RETIRER DE L'ARGENT DANS DES COMPTES FIXES !!!!");
+                printf("\a\a\a\n\nVOUS NE POUVEZ PAS DÃ‰POSER OU RETIRER DE L'ARGENT DANS DES COMPTES FIXES !!!!");
 
                 system("cls");
                 menu();
             }
-            printf("\n\nQue voulez-vous faire ?\n1.Déposer\n2.Retirer?\n\nEntrez votre choix (1 pour déposer et 2 pour retirer) :");
+            printf("\n\nQue voulez-vous faire ?\n1.DÃ©poser\n2.Retirer?\n\nEntrez votre choix (1 pour dÃ©poser et 2 pour retirer) :");
             scanf("%d", &choix);
             if (choix == 1)
             {
@@ -243,7 +243,7 @@ void effectuer_transaction(void)
                 ajouter.montant += transaction.montant;
                 fprintf(nouveau, "%d %s %d/%d/%d %d %s %s %lf %s %f %d/%d/%d\n", ajouter.num_compte, ajouter.nom, ajouter.naissance.mois, ajouter.naissance.jour, ajouter.naissance.annee, ajouter.age, ajouter.adresse, ajouter.nationalite, ajouter.telephone, ajouter.type_compte, ajouter.montant, ajouter.depot.mois, ajouter.depot.jour, ajouter.depot.annee);
                 system("cls");
-                printf("Dépôt effectue avec succes !");
+                printf("DÃ©pÃ´t effectue avec succes !");
             }
             else if (choix == 2)
             {
@@ -373,7 +373,7 @@ void consulter(void)
                 system("cls");
                 test = 1;
 
-                printf("\nNumero de compte : %d\nNom : %s \nDate de naissance : %d/%d/%d \nÂge : %d \nAdresse : %s \nNumero de citoyennete : %s \nNumero de telephone : %.0lf \nType de compte : %s \nMontant depose : $%.2f \nDate de depot : %d/%d/%d\n\n", ajouter.num_compte, ajouter.nom, ajouter.naissance.mois, ajouter.naissance.jour, ajouter.naissance.annee, ajouter.age, ajouter.adresse, ajouter.nationalite, ajouter.telephone,
+                printf("\nNumero de compte : %d\nNom : %s \nDate de naissance : %d/%d/%d \nÃ‚ge : %d \nAdresse : %s \nNumero de citoyennete : %s \nNumero de telephone : %.0lf \nType de compte : %s \nMontant depose : $%.2f \nDate de depot : %d/%d/%d\n\n", ajouter.num_compte, ajouter.nom, ajouter.naissance.mois, ajouter.naissance.jour, ajouter.naissance.annee, ajouter.age, ajouter.adresse, ajouter.nationalite, ajouter.telephone,
                        ajouter.type_compte, ajouter.montant, ajouter.depot.mois, ajouter.depot.jour, ajouter.depot.annee);
 
                 if (strcmpi(ajouter.type_compte, "fixe1") == 0)
@@ -389,21 +389,21 @@ void consulter(void)
                     temps = 2.0;
                     taux = 11;
                     interet1 = interet(temps, ajouter.montant, taux);
-                    printf("\n\nVous recevrez $.%.2f d'intérets le %d/%d/%d", interet1, ajouter.depot.mois, ajouter.depot.jour, ajouter.depot.annee + 2);
+                    printf("\n\nVous recevrez $.%.2f d'intÃ©rets le %d/%d/%d", interet1, ajouter.depot.mois, ajouter.depot.jour, ajouter.depot.annee + 2);
                 }
                 else if (strcmpi(ajouter.type_compte, "fixe3") == 0)
                 {
                     temps = 3.0;
                     taux = 13;
                     interet1 = interet(temps, ajouter.montant, taux);
-                    printf("\n\nVous recevrez $.%.2f d'intérets le %d/%d/%d", interet1, ajouter.depot.mois, ajouter.depot.jour, ajouter.depot.annee + 3);
+                    printf("\n\nVous recevrez $.%.2f d'intÃ©rets le %d/%d/%d", interet1, ajouter.depot.mois, ajouter.depot.jour, ajouter.depot.annee + 3);
                 }
-                else if (strcmpi(ajouter.type_compte, "épargne") == 0)
+                else if (strcmpi(ajouter.type_compte, "Ã©pargne") == 0)
                 {
                     temps = (1.0 / 12.0);
                     taux = 8;
                     interet1 = interet(temps, ajouter.montant, taux);
-                    printf("\n\nVous recevrez $.%.2f d'intérêts le %d de chaque mois", interet1, ajouter.depot.jour);
+                    printf("\n\nVous recevrez $.%.2f d'intÃ©rÃªts le %d de chaque mois", interet1, ajouter.depot.jour);
                 }
                 else if (strcmpi(ajouter.type_compte, "courant") == 0)
                 {
@@ -422,7 +422,7 @@ void consulter(void)
             {
                 system("cls");
                 test = 1;
-                printf("\nNuméro de compte : %d\nNom : %s \nDate de naissance : %d/%d/%d \nÂge : %d \nAdresse : %s \nNuméro de citoyenneté : %s \nNuméro de téléphone : %.0lf \nType de compte : %s \nMontant déposé : $%.2f \nDate de dépôt : %d/%d/%d\n\n", ajouter.num_compte, ajouter.nom, ajouter.naissance.mois, ajouter.naissance.jour, ajouter.naissance.annee, ajouter.age, ajouter.adresse, ajouter.nationalite, ajouter.telephone,
+                printf("\nNumÃ©ro de compte : %d\nNom : %s \nDate de naissance : %d/%d/%d \nÃ‚ge : %d \nAdresse : %s \nNumÃ©ro de citoyennetÃ© : %s \nNumÃ©ro de tÃ©lÃ©phone : %.0lf \nType de compte : %s \nMontant dÃ©posÃ© : $%.2f \nDate de dÃ©pÃ´t : %d/%d/%d\n\n", ajouter.num_compte, ajouter.nom, ajouter.naissance.mois, ajouter.naissance.jour, ajouter.naissance.annee, ajouter.age, ajouter.adresse, ajouter.nationalite, ajouter.telephone,
                        ajouter.type_compte, ajouter.montant, ajouter.depot.mois, ajouter.depot.jour, ajouter.depot.annee);
 
                 if (strcmpi(ajouter.type_compte, "fixe1") == 0)
@@ -430,32 +430,32 @@ void consulter(void)
                     temps = 1.0;
                     taux = 9;
                     interet1 = interet(temps, ajouter.montant, taux);
-                    printf("\n\nVous recevrez $.%.2f d'intérêts le %d/%d/%d", interet1, ajouter.depot.mois, ajouter.depot.jour, ajouter.depot.annee + 1);
+                    printf("\n\nVous recevrez $.%.2f d'intÃ©rÃªts le %d/%d/%d", interet1, ajouter.depot.mois, ajouter.depot.jour, ajouter.depot.annee + 1);
                 }
                 else if (strcmpi(ajouter.type_compte, "fixe2") == 0)
                 {
                     temps = 2.0;
                     taux = 11;
                     interet1 = interet(temps, ajouter.montant, taux);
-                    printf("\n\nVous recevrez $.%.2f d'intérêts le %d/%d/%d", interet1, ajouter.depot.mois, ajouter.depot.jour, ajouter.depot.annee + 2);
+                    printf("\n\nVous recevrez $.%.2f d'intÃ©rÃªts le %d/%d/%d", interet1, ajouter.depot.mois, ajouter.depot.jour, ajouter.depot.annee + 2);
                 }
                 else if (strcmpi(ajouter.type_compte, "fixe3") == 0)
                 {
                     temps = 3.0;
                     taux = 13;
                     interet1 = interet(temps, ajouter.montant, taux);
-                    printf("\n\nVous recevrez $.%.2f d'intérêts le %d/%d/%d", interet1, ajouter.depot.mois, ajouter.depot.jour, ajouter.depot.annee + 3);
+                    printf("\n\nVous recevrez $.%.2f d'intÃ©rÃªts le %d/%d/%d", interet1, ajouter.depot.mois, ajouter.depot.jour, ajouter.depot.annee + 3);
                 }
-                else if (strcmpi(ajouter.type_compte, "épargne") == 0)
+                else if (strcmpi(ajouter.type_compte, "Ã©pargne") == 0)
                 {
                     temps = (1.0 / 12.0);
                     taux = 8;
                     interet1 = interet(temps, ajouter.montant, taux);
-                    printf("\n\nVous recevrez $.%.2f d'intérêts le %d de chaque mois", interet1, ajouter.depot.jour);
+                    printf("\n\nVous recevrez $.%.2f d'intÃ©rÃªts le %d de chaque mois", interet1, ajouter.depot.jour);
                 }
                 else if (strcmpi(ajouter.type_compte, "courant") == 0)
                 {
-                    printf("\n\nVous ne recevrez aucun intérêt\a\a");
+                    printf("\n\nVous ne recevrez aucun intÃ©rÃªt\a\a");
                 }
             }
         }
@@ -465,9 +465,9 @@ void consulter(void)
     if (test != 1)
     {
         system("cls");
-        printf("\nEnregistrement non trouvé!!\a\a\a");
+        printf("\nEnregistrement non trouvÃ©!!\a\a\a");
         consulter_invalide:
-        printf("\nEntrez 0 pour réessayer, 1 pour retourner au menu principal et 2 pour quitter :");
+        printf("\nEntrez 0 pour rÃ©essayer, 1 pour retourner au menu principal et 2 pour quitter :");
         scanf("%d", &main_exit);
         system("cls");
         if (main_exit == 1)
@@ -520,8 +520,6 @@ void calculer_somme_soldes() {
                   &ajouter.age, ajouter.adresse, ajouter.nationalite, &ajouter.telephone, ajouter.type_compte,
                   &ajouter.montant, &ajouter.depot.mois, &ajouter.depot.jour, &ajouter.depot.annee) != EOF) {
 
-        // Vérifiez si le compte est actif (vous pouvez ajouter une condition ici selon votre logique)
-        // Par exemple, si le solde du compte est positif, considérez-le comme actif.
         if (ajouter.montant > 0) {
             somme_soldes += ajouter.montant;
         }
@@ -532,8 +530,6 @@ void calculer_somme_soldes() {
     printf("La somme totale des soldes des comptes actifs est : $%.2f\n", somme_soldes);
 }
 
-
-// Ajoutez cette fonction avant la fonction main()
 
 void afficher_nombre_total_comptes() {
     FILE *fichier;
@@ -555,12 +551,10 @@ void afficher_nombre_total_comptes() {
 
     fclose(fichier);
 
-    printf("Le nombre total de comptes clients enregistrés est : %d\n", nombre_total_comptes);
+    printf("Le nombre total de comptes clients enregistrÃ©s est : %d\n", nombre_total_comptes);
 }
 
 
-
-// Remplacez votre fonction menu actuelle par celle-ci
 
 void menu() {
     int choix;
